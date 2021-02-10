@@ -8,6 +8,7 @@ function getUserName(url) {
 	}
 	return name;
 }
+
 function responseFetch(name) {
   fetch('https://api.github.com/users/${getUserName(url)}')
   .then(res => res.json())
