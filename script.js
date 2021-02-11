@@ -12,9 +12,7 @@ function responseFetch() {
   fetch(`https://api.github.com/users/${getUserName(url)}`)
   .then(res => res.json())
   .then(json => {
-    console.log(json);
     console.log(json.avatar_url);
-    console.log(json.location);
     console.log(json.bio);
     console.log(json.name);
     console.log(json.html_url);
@@ -36,13 +34,6 @@ function responseFetch() {
       description.innerHTML = json.bio;
     }
     document.body.append(description);
-    let location = document.createElement('p');
-    if (json.location == null) {
-      document.body.innerHTML = ('Пользователь не найден')
-    } else {
-      location.innerHTML = json.location;
-    }
-    document.body.append(location);
     })
     .catch(err => document.body.innerHTML = ('Информация о пользователе недоступна'));
   }
